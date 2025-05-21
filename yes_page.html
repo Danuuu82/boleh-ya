@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>aseekkk boleh juga akhirnya wiww!</title>
+  <link rel="stylesheet" href="yes_style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="header_text">aseekkk boleh juga akhirnya wiww!</h1>
+    <div class="gif_container">
+      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjFzNXU3Ymh6a3RtOGpnMnR2M2g0MmJkcHpreDlydG03Zm5xazVxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ZvxIIsZWjC0RLfDe1c/giphy.gif" alt="Dancing Heart GIF" />
+    </div>
+  </div>
+
+  <div class="button-bottom-center">
+    <button class="btn-chikacu" onclick="playChikacuSong()">Buat Chikacu</button>
+  </div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="blue_yung_kai.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio 😢
+  </audio>
+
+  <script>
+    let chikacuAudio = null;
+    let isPlaying = false;
+
+    function playChikacuSong() {
+      const bgMusic = document.getElementById('bg-music');
+      if (bgMusic && !bgMusic.paused) {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+      }
+
+      if (!isPlaying) {
+        chikacuAudio = new Audio('adaband_full.mp3');
+        chikacuAudio.play()
+          .then(() => {
+            isPlaying = true;
+            chikacuAudio.onended = () => {
+              isPlaying = false;
+            };
+          })
+          .catch(error => {
+            console.error("Gagal memutar lagu:", error);
+          });
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const music = document.getElementById("bg-music");
+      const savedTime = parseFloat(localStorage.getItem('musicTime')) || 0;
+      if (music) {
+        music.volume = 0.5;
+        music.currentTime = savedTime;
+        music.play().catch(err => console.error("Gagal autoplay musik:", err));
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffeef2;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    padding: 40px;
+}
+
+.header_text {
+    color: #ff6fa4;
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.gif_container img {
+    width: 490px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-chikacu {
+    background-color: #ff6fa4;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(255, 111, 164, 0.3);
+}
+
+.btn-chikacu:hover {
+    background-color: #ff5a95;
+    transform: scale(1.05);
+}
+
+.button_container {
+    text-align: center;
+    margin-top: 20px;
+}
